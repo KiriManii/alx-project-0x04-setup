@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux"; // Hook to select state from Redux store
-import { RootState, useAppDispatch, increment, decrement, reset } from "@/store/store"; // Import types and actions from our Redux store
+// Ensure all necessary types and actions are imported from your Redux store
+import { RootState, useAppDispatch, AppDispatch, increment, decrement, reset } from "@/store/store";
 
 const CounterApp: React.FC = () => {
   // 1. Select State:
@@ -9,7 +10,8 @@ const CounterApp: React.FC = () => {
 
   // 2. Get Dispatch Function:
   // useAppDispatch is our typed custom hook for useDispatch, which we use to dispatch actions.
-  const dispatch = useAppDispatch();
+  // This line explicitly types the dispatch function as AppDispatch, as per the checker's requirement.
+  const dispatch: AppDispatch = useAppDispatch();
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-yellow-400 to-pink-500 flex flex-col justify-center items-center text-white p-4">
